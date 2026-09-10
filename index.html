@@ -803,20 +803,21 @@ form.addEventListener("submit", function(event) {
         formData.set("inep", inepValor);
     }
 
-    fetch(urlGoogleScript, { method: "POST", body: formData })
-    .then(response => response.json())
-    .then(data => {
-        if (data.result === "success") {
-            mostrarAlertaCustomizado("Nome incluído na Lista de Espera com sucesso!", "Sucesso!");
-            form.reset();
-            selectUF.disabled = true;
-            selectMunicipio.disabled = true;
-            selectEscola.disabled = true;
-        } else {
-            mostrarAlertaCustomizado("Erro ao salvar: " + (data.message || "Erro desconhecido"), "Erro");
-        }
+    fetch(urlGoogleScript, { 
+        method: "POST", 
+        mode: "no-cors", 
+        body: formData 
     })
-    .catch(() => mostrarAlertaCustomizado("Erro na conexão ao enviar os dados.", "Erro"))
+    .then(() => {
+        mostrarAlertaCustomizado("Nome incluído na Lista de Espera com sucesso!", "Sucesso!");
+        form.reset();
+        selectUF.disabled = true;
+        selectMunicipio.disabled = true;
+        selectEscola.disabled = true;
+    })
+    .catch(() => {
+        mostrarAlertaCustomizado("Erro na conexão ao enviar os dados.", "Erro");
+    })
     .finally(() => {
         btnSubmit.textContent = "Enviar";
         btnSubmit.disabled = false;
