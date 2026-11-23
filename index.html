@@ -636,15 +636,21 @@
 
       fetch(urlGoogleScript, {
         method: "POST",
-        mode: "no-cors",
         body: formData
       })
-        .then(() => {
-          mostrarAlertaCustomizado("Nome incluído no nosso Grupo de Trabalho 2027 com sucesso!", "Sucesso!");
-          form.reset();
-          codigoMunicipioInput.value = "";
-          selectMunicipio.innerHTML = '<option value="">Selecione primeiro o estado</option>';
-          selectMunicipio.disabled = true;
+        .then(res => res.json())
+        .then(data => {
+          if (data.result === "duplicate") {
+            mostrarAlertaCustomizado(data.message || "Este e-mail já está cadastrado no Grupo de Trabalho 2027.", "E-mail duplicado");
+          } else if (data.result === "success") {
+            mostrarAlertaCustomizado("Nome incluído no nosso Grupo de Trabalho 2027 com sucesso!", "Sucesso!");
+            form.reset();
+            codigoMunicipioInput.value = "";
+            selectMunicipio.innerHTML = '<option value="">Selecione primeiro o estado</option>';
+            selectMunicipio.disabled = true;
+          } else {
+            mostrarAlertaCustomizado(data.message || "Não foi possível concluir o cadastro.", "Atenção");
+          }
         })
         .catch(() => {
           mostrarAlertaCustomizado("Erro na conexão ao enviar os dados.", "Erro");
