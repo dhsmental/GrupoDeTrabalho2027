@@ -3,651 +3,657 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Grupo de Trabalho 2027 - DHSM</title>[cite: 6]
+  <title>Grupo de Trabalho 2027 - DHSM</title>
 
- <style>
+  <style>
     body {
-        font-family: Arial, sans-serif;
-        background-color: #f4f4f9;
-        padding: 20px;
-    }[cite: 6]
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      padding: 20px;
+      margin: 0;
+    }
 
     .container-principal {
-    max-width: 1000px; 
-    width: 100%;
-    margin: 0 auto;   
-    background: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
-    overflow: hidden; 
-    padding: 40px 20px;
-    box-sizing: border-box;
-}[cite: 6]
+      max-width: 1000px;
+      width: 100%;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+      overflow: hidden;
+      box-sizing: border-box;
+    }
 
     .banner {
-        margin: 0;
-        padding: 0;
-        line-height: 0; 
-    }[cite: 6]
+      margin: 0;
+      padding: 0;
+      line-height: 0;
+    }
 
     .banner img {
-        width: 100%;      
-        height: auto;     
-        display: block;
-        border-top-left-radius: 8px;  
-        border-top-right-radius: 8px;
-    }[cite: 6]
+      width: 100%;
+      height: auto;
+      display: block;
+    }
 
-    .formulario {
-        width: 100%;      
-        padding: 30px;
-        box-sizing: border-box; 
-    }[cite: 6]
+    .form-container {
+      width: 100%;
+      padding: 30px 40px 40px;
+      box-sizing: border-box;
+    }
 
     h1 {
-    font-size: clamp(24px, 3vw, 42px);
-    margin-bottom: 20px;
-    white-space: nowrap;
-}[cite: 6]
+      font-weight: normal;
+      font-size: clamp(18px, 2vw, 24px);
+      line-height: 1.4;
+      margin-top: 0;
+      margin-bottom: 16px;
+      color: #202124;
+    }
 
     h2 {
-        font-size: 20px;
-        margin-top: 30px;
-        margin-bottom: 15px;
-        border-bottom: 2px solid #1a73e8;
-        padding-bottom: 5px;
-    }[cite: 6]
+      font-size: 20px;
+      margin-top: 30px;
+      margin-bottom: 15px;
+      border-bottom: 2px solid #1a73e8;
+      padding-bottom: 5px;
+      color: #202124;
+    }
 
     p.description {
-        font-size: 14px;
-        color: #555;
-        margin-bottom: 40px;
-    }[cite: 6]
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 30px;
+    }
 
     .form-group {
-        margin-bottom: 20px;
-    }[cite: 6]
+      margin-bottom: 20px;
+    }
 
     label {
-        display: block;
-        font-weight: bold;
-        margin-bottom: 5px;
-    }[cite: 6]
+      display: block;
+      font-weight: bold;
+      margin-bottom: 6px;
+      color: #202124;
+    }
 
     .required {
-        color: red;
-    }[cite: 6]
+      color: #d93025;
+    }
 
     .help-text {
-        font-size: 12px;
-        color: #666;
-        margin-bottom: 5px;
-    }[cite: 6]
+      font-size: 12px;
+      color: #666;
+      margin-bottom: 6px;
+    }
 
     input[type="text"],
     input[type="email"],
     input[type="tel"],
     select,
     textarea {
-        width: 100%;
-        padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        box-sizing: border-box;
-        font-family: Arial, sans-serif;
-        font-size: 14px;
-    }[cite: 6]
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      background-color: #ffffff;
+    }
 
     textarea {
-        resize: vertical;
-        min-height: 100px;
-    }[cite: 6]
+      resize: vertical;
+      min-height: 100px;
+    }
 
-    input[readonly], select:disabled, input:disabled {
-        background-color: #e9ecef;
-        cursor: not-allowed;
-    }[cite: 6]
+    input[readonly],
+    select:disabled,
+    input:disabled {
+      background-color: #e9ecef;
+      cursor: not-allowed;
+    }
 
     .radio-group label {
-        font-weight: normal;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        margin-bottom: 5px;
-        cursor: pointer;
-    }[cite: 6]
+      font-weight: normal;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+      cursor: pointer;
+    }
 
     .info-obrigatorio {
-        margin-right: auto;
-        font-size: 13px;
-        color: #555;
-        display: flex;
-        align-items: center;
-        line-height: 40px;
-    }[cite: 6]
+      margin-right: auto;
+      font-size: 13px;
+      color: #555;
+      display: flex;
+      align-items: center;
+      line-height: 40px;
+    }
 
     .asterisco {
-        color: #d93025;
-        font-weight: bold;
-        margin-right: 4px;
-    }[cite: 6]
+      color: #d93025;
+      font-weight: bold;
+      margin-right: 4px;
+    }
 
     button {
-        min-width: 100px;
-        height: 40px;
-        padding: 0 20px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        font-size: 14px;
-        font-weight: 500;
-    }[cite: 6]
+      min-width: 100px;
+      height: 40px;
+      padding: 0 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+    }
 
     .buttons {
-        display: flex;
-        justify-content: flex-end;
-        width: 100%;
-        gap: 12px;
-        margin-top: 30px;
-    }[cite: 6]
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      width: 100%;
+      gap: 12px;
+      margin-top: 30px;
+    }
 
     .btn-submit {
-        background-color: #1a73e8;
-        color: white;
-    }[cite: 6]
+      background-color: #1a73e8;
+      color: white;
+    }
 
     .btn-reset {
-        background-color: #ffffff;
-        color: #3c4043;
-        border: 1px solid #dadce0;
-    }[cite: 6]
+      background-color: #ffffff;
+      color: #3c4043;
+      border: 1px solid #dadce0;
+    }
 
     #custom-alert-overlay {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
-        z-index: 9999;
-        justify-content: center;
-        align-items: center;
-    }[cite: 6]
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
+    }
 
     #custom-alert-box {
-        background: #ffffff;
-        padding: 30px 40px;
-        border-radius: 12px;
-        box-shadow: 0 8px 24px rgba(0,0,0,0.2);
-        text-align: center;
-        max-width: 400px;
-        width: 90%;
-        animation: scaleIn 0.2s ease-in-out;
-    }[cite: 6]
+      background: #ffffff;
+      padding: 30px 40px;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      max-width: 400px;
+      width: 90%;
+      animation: scaleIn 0.2s ease-in-out;
+    }
 
     @keyframes scaleIn {
-        from { transform: scale(0.8); opacity: 0; }
-        to { transform: scale(1); opacity: 1; }
-    }[cite: 6]
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
 
     .alert-logo {
-        width: 70px;
-        height: 70px;
-        object-fit: contain;
-        margin-bottom: 15px;
-        border-radius: 50%;
-    }[cite: 6]
+      width: 70px;
+      height: 70px;
+      object-fit: contain;
+      margin-bottom: 15px;
+      border-radius: 50%;
+    }
 
     #custom-alert-box h3 {
-        margin-top: 0;
-        color: #1a73e8;
-        font-size: 24px;
-        margin-bottom: 10px;
-    }[cite: 6]
+      margin-top: 0;
+      color: #1a73e8;
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
 
     #custom-alert-box p {
-        font-size: 16px;
-        color: #333;
-        margin-bottom: 25px;
-    }[cite: 6]
+      font-size: 16px;
+      color: #333;
+      margin-bottom: 25px;
+    }
 
     #custom-alert-box button {
-        background-color: #1a73e8;
-        color: white;
-        font-size: 16px;
-        padding: 10px 30px;
-        border-radius: 6px;
-        width: 100%;
-    }[cite: 6]
+      background-color: #1a73e8;
+      color: white;
+      font-size: 16px;
+      padding: 10px 30px;
+      border-radius: 6px;
+      width: 100%;
+    }
 
     #custom-alert-box button:hover {
-        background-color: #1557b0;
-    }[cite: 6]
-</style>
+      background-color: #1557b0;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 10px;
+      }
+
+      .form-container {
+        padding: 20px;
+      }
+    }
+  </style>
 </head>
 
 <body>
-<div class="container-principal">
-	<div class="banner">
-    	    <img src="./banner.jpg" alt="Banner do Curso">[cite: 6]
-	</div>
-
-<div class="form-container">
-
- <h1 style="font-weight: normal; font-size: 1.5rem;">
-  E agora na reta final do Curso de Educação em Direitos Humanos e Saúde Mental ,<br>
-  você que quer continuar recebendo informações sobre estes temas, assim como <br>
-participar de novos projetos que vamos desenvolver em 2027, preencha o formulário…
-</h1>[cite: 6]
-<p class="description">Formulário para coleta de dados para futuras informações sobre nossos novos projetos. </p>[cite: 6]
-
-  <form id="formCursistas">
-    
-    <!-- 1. DADOS PESSOAIS -->
-    <h2>Dados Pessoais</h2>[cite: 6]
-
-    <div class="form-group">
-      <label for="email">E-mail: <span class="required">*</span></label>
-      <input type="email" id="email" name="email" placeholder="Seu e-mail" required>
-    </div>[cite: 6]
-
-    <div class="form-group">
-      <label for="nome">Nome Completo: <span class="required">*</span></label>
-      <input type="text" id="nome" name="nome" placeholder="Sua resposta" required>
-    </div>[cite: 6]
-
-    <div class="form-group">
-      <label for="confirm_email">Confirme seu endereço de e-mail: <span class="required">*</span></label>
-      <div class="help-text">Digite o e-mail com atenção, pois ele será utilizado para envio das comunicações sobre os nossos projetos.</div>
-      <input type="email" id="confirm_email" name="confirm_email" placeholder="Sua resposta" required>
-    </div>[cite: 6]
-
-    <div class="form-group">
-      <label for="data_nascimento">Data de Nascimento: <span class="required">*</span></label>
-      <input type="text" id="data_nascimento" name="data_nascimento" placeholder="DD/MM/AAAA" maxlength="10" required>
-    </div>[cite: 6]
-
-    <div class="form-group radio-group">
-      <label><strong>Gênero:</strong> <span class="required">*</span></label>
-      <label><input type="radio" name="genero" value="Masculino" required> Masculino</label>
-      <label><input type="radio" name="genero" value="Feminino"> Feminino</label>
-      <label><input type="radio" name="genero" value="Desejo não declarar"> Desejo não declarar</label>
-    </div>[cite: 6]
-
-    <div class="form-group">
-      <label for="telefone">Telefone com DDD <span class="required">*</span></label>
-      <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" maxlength="15" required>
-    </div>[cite: 6]
-
-    <div class="form-group">
-      <label for="raca">Raça/Etnia: <span class="required">*</span></label>
-      <select id="raca" name="raca" required>
-        <option value="" disabled selected>Selecione uma opção</option>
-        <option value="1">1 - Branca</option>
-        <option value="2">2 - Preta</option>
-        <option value="3">3 - Parda</option>
-        <option value="4">4 - Amarela</option>
-        <option value="5">5 - Indígena</option>
-        <option value="nao_declarada">Não declarada</option>
-      </select>
-    </div>[cite: 6]
-
-    <div class="form-group">
-      <label for="deficiencia">Deficiência: <span class="required">*</span></label>
-      <select id="deficiencia" name="deficiencia" required>
-        <option value="" disabled selected>Selecione uma opção</option>
-        <option value="1">1 - Cegueira</option>
-        <option value="2">2 - Surdocegueira</option>
-        <option value="3">3 - Baixa visão</option>
-        <option value="4">4 - Deficiência física</option>
-        <option value="5">5 - Surdez</option>
-        <option value="6">6 - Deficiência intelectual</option>
-        <option value="7">7 - Deficiência auditiva</option>
-        <option value="8">8 - Deficiência múltipla</option>
-        <option value="9">9 - Não declarado</option>
-        <option value="10">10 - Não possui deficiência</option>
-      </select>
-    </div>[cite: 6]
-
-    <div class="form-group">
-      <label for="funcao">Profissão: <span class="required">*</span></label>
-      <select id="funcao" name="funcao" required>
-        <option value="" disabled selected>Selecione uma opção</option>
-        <option value="1">1 - Auxiliar de Educação Infantil</option>
-        <option value="2">2 - Conselheiro Escolar</option>
-        <option value="3">3 - Conselheiro Municipal de Educação</option>
-        <option value="4">4 - Coordenador Pedagógico</option>
-        <option value="5">5 - Diretor</option>
-        <option value="6">6 - Dirigente de Educação</option>
-        <option value="7">7 - Docente</option>
-        <option value="8">8 - Estudante</option>
-        <option value="9">9 - Formador de NTE</option>
-        <option value="10">10 - Intérprete de Libras</option>
-        <option value="11">11 - Monitor de Atividade Complementar</option>
-        <option value="12">12 - Profissional de Assistência</option>
-        <option value="13">13 - Profissional de Saúde</option>
-        <option value="14">14 - Técnico da Secretaria de Educação</option>
-        <option value="15">15 - Técnico de NTE</option>
-        <option value="16">16 - Vice-Diretor</option>
-        <option value="99">99 - Outros</option>
-      </select>
-    </div>[cite: 6]
-
-    <!-- 2. LOCALIZAÇÃO -->
-    <div class="form-group">
-      <label for="uf">Estado onde reside / trabalha: <span class="required">*</span></label>
-      <select id="uf" name="uf" required>
-        <option value="" disabled selected>Selecione um estado</option>
-        <option value="AC">AC</option><option value="AL">AL</option><option value="AP">AP</option>
-        <option value="AM">AM</option><option value="BA">BA</option><option value="CE">CE</option>
-        <option value="DF">DF</option><option value="ES">ES</option><option value="GO">GO</option>
-        <option value="MA">MA</option><option value="MG">MG</option><option value="MS">MS</option>
-        <option value="MT">MT</option><option value="PA">PA</option><option value="PB">PB</option>
-        <option value="PE">PE</option><option value="PI">PI</option><option value="PR">PR</option>
-        <option value="RJ">RJ</option><option value="RN">RN</option><option value="RO">RO</option>
-        <option value="RR">RR</option><option value="RS">RS</option><option value="SC">SC</option>
-        <option value="SE">SE</option><option value="SP">SP</option><option value="TO">TO</option>
-      </select>
-    </div>[cite: 6]
-
-    <div class="form-group">
-      <label for="municipio">Município em que reside / trabalha: <span class="required">*</span></label>
-      <select id="municipio" name="municipio" disabled required>
-        <option value="">Selecione primeiro o estado</option>
-      </select>
-    </div>[cite: 6]
-
-    <div class="form-group">
-      <label for="sugestao_estudo">O que você desejaria continuar estudando em termos de projeto de qualificação continuada dentro do tema Educação em Direitos Humanos e Saúde Mental? <span class="required">*</span></label>
-      <textarea id="sugestao_estudo" name="sugestao_estudo" rows="4" placeholder="Sua resposta" required></textarea>
-    </div>[cite: 6]
-
-    <input type="hidden" id="codigo_municipio" name="codigo_municipio">[cite: 6]
-
-    <div class="buttons">
-      <span class="info-obrigatorio">
-          <span class="asterisco">*</span> Campos obrigatórios
-      </span>
-      <button type="reset" class="btn-reset">Limpar formulário</button>
-      <button type="submit" class="btn-submit">Enviar</button>
-    </div>[cite: 6]
-
-  </form>
-</div>
-</div>
-
-<!-- Alerta Personalizado -->
-<div id="custom-alert-overlay">
-    <div id="custom-alert-box">
-        <img src="./logo.jpg" alt="Logo" class="alert-logo">[cite: 6]
-        <h3 id="custom-alert-title">Sucesso!</h3>
-        <p id="custom-alert-message">Cadastro realizado com sucesso!</p>
-        <button onclick="fecharAlertaCustomizado()">OK</button>
+  <div class="container-principal">
+    <div class="banner">
+      <img src="./banner.jpg" alt="Banner do Curso">
     </div>
-</div>
 
-<script>
-const selectUF = document.getElementById("uf");
-const selectMunicipio = document.getElementById("municipio");
-const codigoMunicipioInput = document.getElementById("codigo_municipio");
-const form = document.getElementById("formCursistas");[cite: 6]
+    <div class="form-container">
+      <h1>
+        E agora na reta final do Curso de Educação em Direitos Humanos e Saúde Mental,<br>
+        você que quer continuar recebendo informações sobre estes temas, assim como<br>
+        participar de novos projetos que vamos desenvolver em 2027, preencha o formulário…
+      </h1>
+      <p class="description">Formulário para coleta de dados para futuras informações sobre nossos novos projetos.</p>
 
-// Garante que o Estado comece liberado e o Município só aguarde a escolha do Estado
-selectUF.disabled = false;
-selectMunicipio.disabled = true;[cite: 6]
+      <form id="formCursistas">
+        <h2>Dados Pessoais</h2>
 
-function mostrarAlertaCustomizado(mensagem, titulo = "Sucesso!") {
-    document.getElementById("custom-alert-title").textContent = titulo;
-    document.getElementById("custom-alert-message").textContent = mensagem;
-    document.getElementById("custom-alert-overlay").style.display = "flex";
-}[cite: 6]
+        <div class="form-group">
+          <label for="email">E-mail: <span class="required">*</span></label>
+          <input type="email" id="email" name="email" placeholder="Seu e-mail" required>
+        </div>
 
-function fecharAlertaCustomizado() {
-    document.getElementById("custom-alert-overlay").style.display = "none";
-}[cite: 6]
+        <div class="form-group">
+          <label for="nome">Nome Completo: <span class="required">*</span></label>
+          <input type="text" id="nome" name="nome" placeholder="Sua resposta" required>
+        </div>
 
-function validarCPF(cpf) {
-    cpf = String(cpf).replace(/[^\d]+/g, '');
-    if (cpf.length !== 11 || /^(\d)\1{10}$/.test(cpf)) return false;
-    let soma = 0, resto;
-    for (let i = 1; i <= 9; i++) soma += parseInt(cpf.substring(i - 1, i)) * (11 - i);
-    resto = (soma * 10) % 11;
-    if ((resto === 10) || (resto === 11)) resto = 0;
-    if (resto !== parseInt(cpf.substring(9, 10))) return false;
-    soma = 0;
-    for (let i = 1; i <= 10; i++) soma += parseInt(cpf.substring(i - 1, i)) * (12 - i);
-    resto = (soma * 10) % 11;
-    if ((resto === 10) || (resto === 11)) resto = 0;
-    return resto === parseInt(cpf.substring(10, 11));
-}[cite: 6]
+        <div class="form-group">
+          <label for="confirm_email">Confirme seu endereço de e-mail: <span class="required">*</span></label>
+          <div class="help-text">Digite o e-mail com atenção, pois ele será utilizado para envio das comunicações sobre os nossos projetos.</div>
+          <input type="email" id="confirm_email" name="confirm_email" placeholder="Sua resposta" required>
+        </div>
 
-const cpfEl = document.getElementById("cpf");
-if (cpfEl) {
-    cpfEl.addEventListener("blur", function() {
-        let cpfValor = this.value.trim();
+        <div class="form-group">
+          <label for="data_nascimento">Data de Nascimento: <span class="required">*</span></label>
+          <input type="text" id="data_nascimento" name="data_nascimento" placeholder="DD/MM/AAAA" maxlength="10" required>
+        </div>
+
+        <div class="form-group radio-group">
+          <label><strong>Gênero:</strong> <span class="required">*</span></label>
+          <label><input type="radio" name="genero" value="Masculino" required> Masculino</label>
+          <label><input type="radio" name="genero" value="Feminino"> Feminino</label>
+          <label><input type="radio" name="genero" value="Desejo não declarar"> Desejo não declarar</label>
+        </div>
+
+        <div class="form-group">
+          <label for="telefone">Telefone com DDD <span class="required">*</span></label>
+          <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" maxlength="15" required>
+        </div>
+
+        <div class="form-group">
+          <label for="raca">Raça/Etnia: <span class="required">*</span></label>
+          <select id="raca" name="raca" required>
+            <option value="" disabled selected>Selecione uma opção</option>
+            <option value="1">1 - Branca</option>
+            <option value="2">2 - Preta</option>
+            <option value="3">3 - Parda</option>
+            <option value="4">4 - Amarela</option>
+            <option value="5">5 - Indígena</option>
+            <option value="nao_declarada">Não declarada</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="deficiencia">Deficiência: <span class="required">*</span></label>
+          <select id="deficiencia" name="deficiencia" required>
+            <option value="" disabled selected>Selecione uma opção</option>
+            <option value="1">1 - Cegueira</option>
+            <option value="2">2 - Surdocegueira</option>
+            <option value="3">3 - Baixa visão</option>
+            <option value="4">4 - Deficiência física</option>
+            <option value="5">5 - Surdez</option>
+            <option value="6">6 - Deficiência intelectual</option>
+            <option value="7">7 - Deficiência auditiva</option>
+            <option value="8">8 - Deficiência múltipla</option>
+            <option value="9">9 - Não declarado</option>
+            <option value="10">10 - Não possui deficiência</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="funcao">Profissão: <span class="required">*</span></label>
+          <select id="funcao" name="funcao" required>
+            <option value="" disabled selected>Selecione uma opção</option>
+            <option value="1">1 - Auxiliar de Educação Infantil</option>
+            <option value="2">2 - Conselheiro Escolar</option>
+            <option value="3">3 - Conselheiro Municipal de Educação</option>
+            <option value="4">4 - Coordenador Pedagógico</option>
+            <option value="5">5 - Diretor</option>
+            <option value="6">6 - Dirigente de Educação</option>
+            <option value="7">7 - Docente</option>
+            <option value="8">8 - Estudante</option>
+            <option value="9">9 - Formador de NTE</option>
+            <option value="10">10 - Intérprete de Libras</option>
+            <option value="11">11 - Monitor de Atividade Complementar</option>
+            <option value="12">12 - Profissional de Assistência</option>
+            <option value="13">13 - Profissional de Saúde</option>
+            <option value="14">14 - Técnico da Secretaria de Educação</option>
+            <option value="15">15 - Técnico de NTE</option>
+            <option value="16">16 - Vice-Diretor</option>
+            <option value="99">99 - Outros</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="uf">Estado onde reside / trabalha: <span class="required">*</span></label>
+          <select id="uf" name="uf" required>
+            <option value="" disabled selected>Selecione um estado</option>
+            <option value="AC">AC</option><option value="AL">AL</option><option value="AP">AP</option>
+            <option value="AM">AM</option><option value="BA">BA</option><option value="CE">CE</option>
+            <option value="DF">DF</option><option value="ES">ES</option><option value="GO">GO</option>
+            <option value="MA">MA</option><option value="MG">MG</option><option value="MS">MS</option>
+            <option value="MT">MT</option><option value="PA">PA</option><option value="PB">PB</option>
+            <option value="PE">PE</option><option value="PI">PI</option><option value="PR">PR</option>
+            <option value="RJ">RJ</option><option value="RN">RN</option><option value="RO">RO</option>
+            <option value="RR">RR</option><option value="RS">RS</option><option value="SC">SC</option>
+            <option value="SE">SE</option><option value="SP">SP</option><option value="TO">TO</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="municipio">Município em que reside / trabalha: <span class="required">*</span></label>
+          <select id="municipio" name="municipio" disabled required>
+            <option value="">Selecione primeiro o estado</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="sugestao_estudo">O que você desejaria continuar estudando em termos de projeto de qualificação continuada dentro do tema Educação em Direitos Humanos e Saúde Mental? <span class="required">*</span></label>
+          <textarea id="sugestao_estudo" name="sugestao_estudo" rows="4" placeholder="Sua resposta" required></textarea>
+        </div>
+
+        <input type="hidden" id="codigo_municipio" name="codigo_municipio">
+
+        <div class="buttons">
+          <span class="info-obrigatorio">
+            <span class="asterisco">*</span> Campos obrigatórios
+          </span>
+          <button type="reset" class="btn-reset">Limpar formulário</button>
+          <button type="submit" class="btn-submit">Enviar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Alerta Personalizado -->
+  <div id="custom-alert-overlay">
+    <div id="custom-alert-box">
+      <img src="./logo.jpg" alt="Logo" class="alert-logo">
+      <h3 id="custom-alert-title">Sucesso!</h3>
+      <p id="custom-alert-message">Cadastro realizado com sucesso!</p>
+      <button type="button" onclick="fecharAlertaCustomizado()">OK</button>
+    </div>
+  </div>
+
+  <script>
+    const selectUF = document.getElementById("uf");
+    const selectMunicipio = document.getElementById("municipio");
+    const codigoMunicipioInput = document.getElementById("codigo_municipio");
+    const form = document.getElementById("formCursistas");
+
+    selectUF.disabled = false;
+    selectMunicipio.disabled = true;
+
+    function mostrarAlertaCustomizado(mensagem, titulo = "Sucesso!") {
+      document.getElementById("custom-alert-title").textContent = titulo;
+      document.getElementById("custom-alert-message").textContent = mensagem;
+      document.getElementById("custom-alert-overlay").style.display = "flex";
+    }
+
+    function fecharAlertaCustomizado() {
+      document.getElementById("custom-alert-overlay").style.display = "none";
+    }
+
+    function validarCPF(cpf) {
+      cpf = String(cpf).replace(/[^\d]+/g, "");
+      if (cpf.length !== 11 || /^(\d)\1{10}$/.test(cpf)) return false;
+      let soma = 0, resto;
+      for (let i = 1; i <= 9; i++) soma += parseInt(cpf.substring(i - 1, i), 10) * (11 - i);
+      resto = (soma * 10) % 11;
+      if (resto === 10 || resto === 11) resto = 0;
+      if (resto !== parseInt(cpf.substring(9, 10), 10)) return false;
+      soma = 0;
+      for (let i = 1; i <= 10; i++) soma += parseInt(cpf.substring(i - 1, i), 10) * (12 - i);
+      resto = (soma * 10) % 11;
+      if (resto === 10 || resto === 11) resto = 0;
+      return resto === parseInt(cpf.substring(10, 11), 10);
+    }
+
+    const cpfEl = document.getElementById("cpf");
+    if (cpfEl) {
+      cpfEl.addEventListener("blur", function () {
+        const cpfValor = this.value.trim();
         if (cpfValor.length > 0 && !validarCPF(cpfValor)) {
-            mostrarAlertaCustomizado("O CPF informado é inválido.", "Atenção");
-            this.focus();
+          mostrarAlertaCustomizado("O CPF informado é inválido.", "Atenção");
+          this.focus();
         }
-    });
-}[cite: 6]
+      });
+    }
 
-document.getElementById("nome").addEventListener("blur", function() {
-    let nomeValor = this.value.trim();
-    let palavras = nomeValor.split(/\s+/);
-    
-    if (nomeValor.length > 0 && (palavras.length < 2 || nomeValor.length < 5)) {
+    document.getElementById("nome").addEventListener("blur", function () {
+      const nomeValor = this.value.trim();
+      const palavras = nomeValor.split(/\s+/);
+
+      if (nomeValor.length > 0 && (palavras.length < 2 || nomeValor.length < 5)) {
         mostrarAlertaCustomizado("Por favor, digite seu nome completo (nome e sobrenome).", "Atenção");
         this.focus();
+      }
+    });
+
+    function validarEmail(email) {
+      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return re.test(email);
     }
-});[cite: 6]
 
-function validarEmail(email) {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(email);
-}[cite: 6]
+    document.getElementById("data_nascimento").addEventListener("input", function (e) {
+      let valor = e.target.value.replace(/\D/g, "");
+      if (valor.length > 8) valor = valor.substring(0, 8);
 
-document.getElementById("data_nascimento").addEventListener("input", function (e) {
-    let valor = e.target.value.replace(/\D/g, "");
-    if (valor.length > 8) valor = valor.substring(0, 8);
-    
-    if (valor.length >= 5) {
+      if (valor.length >= 5) {
         valor = valor.substring(0, 2) + "/" + valor.substring(2, 4) + "/" + valor.substring(4, 8);
-    } else if (valor.length >= 3) {
+      } else if (valor.length >= 3) {
         valor = valor.substring(0, 2) + "/" + valor.substring(2);
-    }
-    e.target.value = valor;
-});[cite: 6]
+      }
+      e.target.value = valor;
+    });
 
-document.getElementById("telefone").addEventListener("input", function (e) {
-    let valor = e.target.value.replace(/\D/g, "");
-    if (valor.length > 11) valor = valor.substring(0, 11);
-    
-    if (valor.length > 10) {
+    document.getElementById("telefone").addEventListener("input", function (e) {
+      let valor = e.target.value.replace(/\D/g, "");
+      if (valor.length > 11) valor = valor.substring(0, 11);
+
+      if (valor.length > 10) {
         valor = "(" + valor.substring(0, 2) + ") " + valor.substring(2, 7) + "-" + valor.substring(7, 11);
-    } else if (valor.length === 10) {
+      } else if (valor.length === 10) {
         valor = "(" + valor.substring(0, 2) + ") " + valor.substring(2, 6) + "-" + valor.substring(6, 10);
-    } else if (valor.length > 2) {
+      } else if (valor.length > 2) {
         valor = "(" + valor.substring(0, 2) + ") " + valor.substring(2);
-    } else if (valor.length > 0) {
+      } else if (valor.length > 0) {
         valor = "(" + valor;
-    }
-    e.target.value = valor;
-});[cite: 6]
+      }
+      e.target.value = valor;
+    });
 
-document.getElementById("data_nascimento").addEventListener("blur", function() {
-    let dataStr = this.value;
-    if (dataStr.length > 0 && dataStr.length < 10) {
+    document.getElementById("data_nascimento").addEventListener("blur", function () {
+      const dataStr = this.value;
+      if (dataStr.length > 0 && dataStr.length < 10) {
         mostrarAlertaCustomizado("Por favor, digite a data completa no formato DD/MM/AAAA.", "Atenção");
         this.focus();
         return;
-    }
-    if (dataStr.length === 10) {
-        let partes = dataStr.split("/");
-        let dia = parseInt(partes[0], 10);
-        let mes = parseInt(partes[1], 10);
-        let ano = parseInt(partes[2], 10);
+      }
+      if (dataStr.length === 10) {
+        const partes = dataStr.split("/");
+        const dia = parseInt(partes[0], 10);
+        const mes = parseInt(partes[1], 10);
+        const ano = parseInt(partes[2], 10);
 
         if (mes < 1 || mes > 12 || ano < 1900 || ano > new Date().getFullYear()) {
-            mostrarAlertaCustomizado("Por favor, informe uma data de nascimento válida.", "Atenção");
-            this.focus();
-            return;
+          mostrarAlertaCustomizado("Por favor, informe uma data de nascimento válida.", "Atenção");
+          this.focus();
+          return;
         }
 
-        let dataNasc = new Date(ano, mes - 1, dia);
-        
+        const dataNasc = new Date(ano, mes - 1, dia);
         if (dataNasc.getFullYear() !== ano || dataNasc.getMonth() !== (mes - 1) || dataNasc.getDate() !== dia) {
-            mostrarAlertaCustomizado("A data informada não existe no calendário.", "Atenção");
-            this.focus();
-            return;
+          mostrarAlertaCustomizado("A data informada não existe no calendário.", "Atenção");
+          this.focus();
+          return;
         }
 
-        let hoje = new Date();
-
+        const hoje = new Date();
         if (dataNasc > hoje) {
-            mostrarAlertaCustomizado("A data de nascimento não pode ser no futuro.", "Atenção");
-            this.focus();
-            return;
+          mostrarAlertaCustomizado("A data de nascimento não pode ser no futuro.", "Atenção");
+          this.focus();
+          return;
         }
 
         let idade = hoje.getFullYear() - dataNasc.getFullYear();
-        let m = hoje.getMonth() - dataNasc.getMonth();
+        const m = hoje.getMonth() - dataNasc.getMonth();
         if (m < 0 || (m === 0 && hoje.getDate() < dataNasc.getDate())) {
-            idade--;
+          idade--;
         }
 
         if (idade < 18) {
-            mostrarAlertaCustomizado("O curso é restrito para maiores de 18 anos.", "Atenção");
-            this.focus();
-            return;
+          mostrarAlertaCustomizado("O curso é restrito para maiores de 18 anos.", "Atenção");
+          this.focus();
+          return;
         }
 
         if (idade > 110) {
-            mostrarAlertaCustomizado("Por favor, informe uma data de nascimento válida (idade máxima de 110 anos).", "Atenção");
-            this.focus();
-            return;
+          mostrarAlertaCustomizado("Por favor, informe uma data de nascimento válida (idade máxima de 110 anos).", "Atenção");
+          this.focus();
+          return;
         }
-    }
-});[cite: 6]
+      }
+    });
 
-selectUF.addEventListener("change", async function () {
-    const uf = this.value;
-    codigoMunicipioInput.value = "";
+    selectUF.addEventListener("change", async function () {
+      const uf = this.value;
+      codigoMunicipioInput.value = "";
 
-    if (!uf) {
+      if (!uf) {
         selectMunicipio.innerHTML = '<option value="">Selecione primeiro o estado</option>';
         selectMunicipio.disabled = true;
         return;
-    }
+      }
 
-    selectMunicipio.innerHTML = '<option value="">Carregando municípios...</option>';
-    selectMunicipio.disabled = true;
+      selectMunicipio.innerHTML = '<option value="">Carregando municípios...</option>';
+      selectMunicipio.disabled = true;
 
-    try {
+      try {
         const res = await fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${uf}/municipios?orderBy=nome`);
         const municipios = await res.json();
 
         selectMunicipio.innerHTML = '<option value="">Selecione um município</option>';
         if (Array.isArray(municipios) && municipios.length > 0) {
-            municipios.forEach(m => {
-                const option = document.createElement("option");
-                option.value = m.nome;
-                option.dataset.codigoIbge = m.id;
-                option.textContent = m.nome;
-                selectMunicipio.appendChild(option);
-            });
-            selectMunicipio.disabled = false;
+          municipios.forEach(m => {
+            const option = document.createElement("option");
+            option.value = m.nome;
+            option.dataset.codigoIbge = m.id;
+            option.textContent = m.nome;
+            selectMunicipio.appendChild(option);
+          });
+          selectMunicipio.disabled = false;
         } else {
-            selectMunicipio.innerHTML = '<option value="">Nenhum município encontrado</option>';
+          selectMunicipio.innerHTML = '<option value="">Nenhum município encontrado</option>';
         }
-    } catch (err) {
+      } catch (err) {
         console.error("Erro ao carregar municípios:", err);
         selectMunicipio.innerHTML = '<option value="">Erro ao carregar municípios</option>';
-    }
-});[cite: 6]
+      }
+    });
 
-selectMunicipio.addEventListener("change", function() {
-    const optionSelecionada = selectMunicipio.options[selectMunicipio.selectedIndex];
-    codigoMunicipioInput.value = optionSelecionada?.dataset?.codigoIbge || "";
-});[cite: 6]
+    selectMunicipio.addEventListener("change", function () {
+      const optionSelecionada = selectMunicipio.options[selectMunicipio.selectedIndex];
+      codigoMunicipioInput.value = optionSelecionada?.dataset?.codigoIbge || "";
+    });
 
-form.addEventListener("reset", function() {
-    codigoMunicipioInput.value = "";
-    selectMunicipio.innerHTML = '<option value="">Selecione primeiro o estado</option>';
-    selectMunicipio.disabled = true;
-});[cite: 6]
+    form.addEventListener("reset", function () {
+      codigoMunicipioInput.value = "";
+      selectMunicipio.innerHTML = '<option value="">Selecione primeiro o estado</option>';
+      selectMunicipio.disabled = true;
+    });
 
-form.addEventListener("submit", function(event) {
-    event.preventDefault();
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
 
-    const nomeValor = document.getElementById("nome").value.trim();
-    const palavrasNome = nomeValor.split(/\s+/);
-    if (palavrasNome.length < 2 || nomeValor.length < 5) {
+      const nomeValor = document.getElementById("nome").value.trim();
+      const palavrasNome = nomeValor.split(/\s+/);
+      if (palavrasNome.length < 2 || nomeValor.length < 5) {
         mostrarAlertaCustomizado("Por favor, informe seu nome completo (nome e sobrenome).", "Atenção");
         document.getElementById("nome").focus();
         return;
-    }
+      }
 
-    const email = document.getElementById("email").value.trim();
-    const confirmEmail = document.getElementById("confirm_email").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const confirmEmail = document.getElementById("confirm_email").value.trim();
 
-    if (!validarEmail(email) || email !== confirmEmail) {
+      if (!validarEmail(email) || email !== confirmEmail) {
         mostrarAlertaCustomizado("Os e-mails informados são inválidos ou não coincidem.", "Atenção");
         return;
-    }
+      }
 
-    const telefoneValor = document.getElementById("telefone").value.replace(/\D/g, "");
-    const regexTelefone = /^\d{2}(9\d{8}|[2-8]\d{7})$/;
+      const telefoneValor = document.getElementById("telefone").value.replace(/\D/g, "");
+      const regexTelefone = /^\d{2}(9\d{8}|[2-8]\d{7})$/;
 
-    if (!regexTelefone.test(telefoneValor)) {
+      if (!regexTelefone.test(telefoneValor)) {
         mostrarAlertaCustomizado("Telefone inválido. Se começar com 9 após o DDD, deve ter 9 dígitos. Caso contrário, deve ter 8 dígitos.", "Atenção");
         document.getElementById("telefone").focus();
         return;
-    }
+      }
 
-    const cpfInput = document.getElementById("cpf");
-    const formData = new FormData(form);
+      const cpfInput = document.getElementById("cpf");
+      const formData = new FormData(form);
 
-    if (cpfInput) {
-        let cpfLimpo = cpfInput.value.replace(/\D/g, "").padStart(11, "0");
+      if (cpfInput) {
+        const cpfLimpo = cpfInput.value.replace(/\D/g, "").padStart(11, "0");
         if (!validarCPF(cpfLimpo)) {
-            mostrarAlertaCustomizado("O CPF informado é inválido.", "Atenção");
-            cpfInput.focus();
-            return;
+          mostrarAlertaCustomizado("O CPF informado é inválido.", "Atenção");
+          cpfInput.focus();
+          return;
         }
         const cpfFormatado = cpfLimpo.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4");
         formData.set("cpf", cpfFormatado);
-    }
+      }
 
-    const urlGoogleScript = "https://script.google.com/macros/s/AKfycbw1fV1LWuiY-et9A596QGbuKC4Mi-26X-GS5O-gKP-2jrnUOpZkxj9bRqKfTjVvnMbfTA/exec";
-    const btnSubmit = document.querySelector(".btn-submit");
-    btnSubmit.textContent = "Enviando...";
-    btnSubmit.disabled = true;
+      const urlGoogleScript = "https://script.google.com/macros/s/AKfycbw1fV1LWuiY-et9A596QGbuKC4Mi-26X-GS5O-gKP-2jrnUOpZkxj9bRqKfTjVvnMbfTA/exec";
+      const btnSubmit = document.querySelector(".btn-submit");
+      btnSubmit.textContent = "Enviando...";
+      btnSubmit.disabled = true;
 
-    fetch(urlGoogleScript, { 
-        method: "POST", 
-        mode: "no-cors", 
-        body: formData 
-    })
-    .then(() => {
-        mostrarAlertaCustomizado("Nome incluído no nosso Grupo de Trabalho 2027 com sucesso!", "Sucesso!");
-        form.reset();
-        codigoMunicipioInput.value = "";
-        selectMunicipio.innerHTML = '<option value="">Selecione primeiro o estado</option>';
-        selectMunicipio.disabled = true;
-    })
-    .catch(() => {
-        mostrarAlertaCustomizado("Erro na conexão ao enviar os dados.", "Erro");
-    })
-    .finally(() => {
-        btnSubmit.textContent = "Enviar";
-        btnSubmit.disabled = false;
+      fetch(urlGoogleScript, {
+        method: "POST",
+        mode: "no-cors",
+        body: formData
+      })
+        .then(() => {
+          mostrarAlertaCustomizado("Nome incluído no nosso Grupo de Trabalho 2027 com sucesso!", "Sucesso!");
+          form.reset();
+          codigoMunicipioInput.value = "";
+          selectMunicipio.innerHTML = '<option value="">Selecione primeiro o estado</option>';
+          selectMunicipio.disabled = true;
+        })
+        .catch(() => {
+          mostrarAlertaCustomizado("Erro na conexão ao enviar os dados.", "Erro");
+        })
+        .finally(() => {
+          btnSubmit.textContent = "Enviar";
+          btnSubmit.disabled = false;
+        });
     });
-});
-</script>
+  </script>
 </body>
 </html>
-```[cite: 6]
-
-Tudo pronto para você subir no repositório e testar o envio!
