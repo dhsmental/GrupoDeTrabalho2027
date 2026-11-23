@@ -4,9 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lista de Espera - DHSM</title>
-  
-  <!-- Importação da Biblioteca PapaParse -->
-  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
 
  <style>
     body {
@@ -90,12 +87,20 @@
     input[type="text"],
     input[type="email"],
     input[type="tel"],
-    select {
+    select,
+    textarea {
         width: 100%;
         padding: 10px;
         border: 1px solid #ccc;
         border-radius: 4px;
         box-sizing: border-box;
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+    }
+
+    textarea {
+        resize: vertical;
+        min-height: 100px;
     }
 
     input[readonly], select:disabled, input:disabled {
@@ -225,13 +230,17 @@
 <body>
 <div class="container-principal">
 	<div class="banner">
-    	    <img src="https://raw.githubusercontent.com/dhsmental/DadosCursistas/main/banner.jpeg" alt="Banner do Curso">
+    	    <img src="https://raw.githubusercontent.com/dhsmental/GrupoDeTrabalho2027/main/banner.jpeg" alt="Banner do Curso">
 	</div>
 
 <div class="form-container">
 
-  <h1>Dados Cadastrais - Lista de Espera - DHSM 2027</h1>
-  <p class="description">Formulário para coleta de dados para lista de espera para curso de Direitos Humanos e Saúde Mental 2027- UNIPAMPA</p>
+ <h1 style="font-weight: normal; font-size: 1.5rem;">
+  E agora na reta final do Curso de Educação em Direitos Humanos e Saúde Mental ,<br>
+  você que quer continuar recebendo informações sobre estes temas, assim como <br>
+participar de novos projetos que vamos desenvolver em 2027, preencha o formulário…
+</h1>
+<p class="description">Formulário para coleta de dados para futuras informações sobre projetos. </p>
 
   <form id="formCursistas">
     
@@ -250,7 +259,7 @@
 
     <div class="form-group">
       <label for="confirm_email">Confirme seu endereço de e-mail: <span class="required">*</span></label>
-      <div class="help-text">Digite o e-mail com atenção, pois ele será utilizado para envio das comunicações do curso.</div>
+      <div class="help-text">Digite o e-mail com atenção, pois ele será utilizado para envio das comunicações sobre os nossos projetos.</div>
       <input type="email" id="confirm_email" name="confirm_email" placeholder="Sua resposta" required>
     </div>
 
@@ -260,37 +269,15 @@
     </div>
 
     <div class="form-group radio-group">
-      <label>Gênero: <span class="required">*</span></label>
+      <label><strong>Gênero:</strong> <span class="required">*</span></label>
       <label><input type="radio" name="genero" value="Masculino" required> Masculino</label>
       <label><input type="radio" name="genero" value="Feminino"> Feminino</label>
-    </div>
-
-    <div class="form-group">
-      <label for="cpf">CPF: (apenas números) <span class="required">*</span></label>
-      <input type="tel" id="cpf" name="cpf" pattern="\d*" maxlength="11" placeholder="Sua resposta" required>
+      <label><input type="radio" name="genero" value="Desejo não declarar"> Desejo não declarar</label>
     </div>
 
     <div class="form-group">
       <label for="telefone">Telefone com DDD <span class="required">*</span></label>
       <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" maxlength="15" required>
-    </div>
-
-    <div class="form-group">
-      <label for="escolaridade">Escolaridade: <span class="required">*</span></label>
-      <select id="escolaridade" name="escolaridade" required>
-        <option value="" disabled selected>Selecione uma opção</option>
-        <option value="1">1 - Médio Incompleto</option>
-        <option value="2">2 - Médio Completo</option>
-        <option value="3">3 - Superior Incompleto</option>
-        <option value="5">5 - Pedagogia</option>
-        <option value="6">6 - Licenciatura</option>
-        <option value="7">7 - Superior Completo (outro)</option>
-        <option value="8">8 - Especialização</option>
-        <option value="9">9 - Mestrado</option>
-        <option value="10">10 - Doutorado</option>
-        <option value="11">11 - Fundamental Incompleto</option>
-        <option value="12">12 - Fundamental Completo</option>
-      </select>
     </div>
 
     <div class="form-group">
@@ -323,11 +310,8 @@
       </select>
     </div>
 
-    <!-- 2. INFORMAÇÕES PROFISSIONAIS -->
-    <h2>Informações Profissionais</h2>
-
     <div class="form-group">
-      <label for="funcao">Função que exerce: <span class="required">*</span></label>
+      <label for="funcao">Profissão: <span class="required">*</span></label>
       <select id="funcao" name="funcao" required>
         <option value="" disabled selected>Selecione uma opção</option>
         <option value="1">1 - Auxiliar de Educação Infantil</option>
@@ -350,41 +334,9 @@
       </select>
     </div>
 
-    <div class="form-group radio-group">
-      <label>Rede de Ensino onde Atua: <span class="required">*</span></label>
-      <label><input type="radio" name="rede_ensino" value="Municipal" required> Municipal</label>
-      <label><input type="radio" name="rede_ensino" value="Estadual"> Estadual</label>
-      <label><input type="radio" name="rede_ensino" value="Federal"> Federal</label>
-      <label><input type="radio" name="rede_ensino" value="Não se aplica"> Não se aplica</label>
-    </div>
-
-    <div class="form-group radio-group">
-      <label>Vínculo com a Rede de Ensino: <span class="required">*</span></label>
-      <label><input type="radio" name="vinculo" value="1" required> 1 - Concursado/efetivo</label>
-      <label><input type="radio" name="vinculo" value="2"> 2 - Temporário</label>
-      <label><input type="radio" name="vinculo" value="3"> 3 - Terceirizado</label>
-      <label><input type="radio" name="vinculo" value="4"> 4 - CLT</label>
-      <label><input type="radio" name="vinculo" value="99"> 99 - Estudante</label>
-      <label><input type="radio" name="vinculo" value="100"> 100 - Outros</label>
-    </div>
-
-    <h2>Informações do Cursista</h2>
-
+    <!-- 2. LOCALIZAÇÃO -->
     <div class="form-group">
-      <label>Perfil do Cursista: <span class="required">*</span></label>
-      <div style="display: flex; gap: 20px; padding: 10px 0;">
-        <label style="font-weight: normal; margin-bottom: 0; cursor: pointer; display: flex; align-items: center; gap: 8px;">
-            <input type="radio" name="tipo_cursista" value="Estudante" required style="width: auto; margin: 0;">  Outros
-        </label>
-        <label style="font-weight: normal; margin-bottom: 0; cursor: pointer; display: flex; align-items: center; gap: 8px;">
-            <input type="radio" name="tipo_cursista" value="Profissional da Educação" style="width: auto; margin: 0;"> Profissional da Educação da Rede Básica de Ensino (atuam em escola da Rede)
-        </label>
-      </div>
-    </div>
-
-    <!-- 3. LOCALIZAÇÃO E ESCOLA -->
-    <div class="form-group">
-      <label for="uf">Estado onde estuda / trabalha: <span class="required">*</span></label>
+      <label for="uf">Estado onde reside / trabalha: <span class="required">*</span></label>
       <select id="uf" name="uf" required>
         <option value="" disabled selected>Selecione um estado</option>
         <option value="AC">AC</option><option value="AL">AL</option><option value="AP">AP</option>
@@ -400,22 +352,15 @@
     </div>
 
     <div class="form-group">
-      <label for="municipio">Município em que estuda / trabalha: <span class="required">*</span></label>
+      <label for="municipio">Município em que reside / trabalha: <span class="required">*</span></label>
       <select id="municipio" name="municipio" disabled required>
         <option value="">Selecione primeiro o estado</option>
       </select>
     </div>
 
     <div class="form-group">
-      <label for="escola">Informe o nome da escola onde atua: </label>
-      <select id="escola" name="escola" disabled>
-        <option value="">Selecione primeiro o profissional da educação e o município</option>
-      </select>
-    </div>
-
-    <div class="form-group">
-      <label for="inep">Código INEP da Escola: </label>
-      <input type="text" id="inep" name="inep" readonly placeholder="Preenchido automaticamente">
+      <label for="sugestao_estudo">O que você desejaria continuar estudando em termos de projeto de qualificação continuada dentro do tema Educação em Direitos Humanos e Saúde Mental? <span class="required">*</span></label>
+      <textarea id="sugestao_estudo" name="sugestao_estudo" rows="4" placeholder="Sua resposta" required></textarea>
     </div>
 
     <input type="hidden" id="codigo_municipio" name="codigo_municipio">
@@ -435,7 +380,7 @@
 <!-- Alerta Personalizado -->
 <div id="custom-alert-overlay">
     <div id="custom-alert-box">
-        <img src="https://raw.githubusercontent.com/dhsmental/DadosCursistas/main/logo.jpeg" alt="Logo" class="alert-logo">
+        <img src="https://raw.githubusercontent.com/dhsmental/GrupoDeTrabalho2027/main/logo.jpeg" alt="Logo" class="alert-logo">
         <h3 id="custom-alert-title">Sucesso!</h3>
         <p id="custom-alert-message">Cadastro realizado com sucesso!</p>
         <button onclick="fecharAlertaCustomizado()">OK</button>
@@ -443,49 +388,14 @@
 </div>
 
 <script>
-let EscolasMuniCSV = [];
-
 const selectUF = document.getElementById("uf");
 const selectMunicipio = document.getElementById("municipio");
-const selectEscola = document.getElementById("escola");
-const campoInep = document.getElementById("inep");
+const codigoMunicipioInput = document.getElementById("codigo_municipio");
 const form = document.getElementById("formCursistas");
-const radiosPerfil = document.querySelectorAll('input[name="tipo_cursista"]');
 
-// Bloqueia Estado e Município logo no carregamento inicial da página
-selectUF.disabled = true;
+// Garante que o Estado comece liberado e o Município só aguarde a escolha do Estado
+selectUF.disabled = false;
 selectMunicipio.disabled = true;
-selectEscola.disabled = true;
-
-const CSV_POR_UF = {
-  "AC": "https://docs.google.com/spreadsheets/d/e/2PACX-1vRnTs95n0C-DHcZGDos7332ndYM4_rx7ZqF_I8l6eRRoeI_uktPGq5FN-e-ByM6xA/pub?gid=919089555&single=true&output=csv",
-  "AL": "https://docs.google.com/spreadsheets/d/e/2PACX-1vRnTs95n0C-DHcZGDos7332ndYM4_rx7ZqF_I8l6eRRoeI_uktPGq5FN-e-ByM6xA/pub?gid=1492906837&single=true&output=csv",
-  "AM": "https://docs.google.com/spreadsheets/d/e/2PACX-1vRnTs95n0C-DHcZGDos7332ndYM4_rx7ZqF_I8l6eRRoeI_uktPGq5FN-e-ByM6xA/pub?gid=2065729688&single=true&output=csv",
-  "AP": "https://docs.google.com/spreadsheets/d/e/2PACX-1vRnTs95n0C-DHcZGDos7332ndYM4_rx7ZqF_I8l6eRRoeI_uktPGq5FN-e-ByM6xA/pub?gid=413582905&single=true&output=csv",
-  "BA": "https://docs.google.com/spreadsheets/d/e/2PACX-1vRnTs95n0C-DHcZGDos7332ndYM4_rx7ZqF_I8l6eRRoeI_uktPGq5FN-e-ByM6xA/pub?gid=135079623&single=true&output=csv",
-  "CE": "https://docs.google.com/spreadsheets/d/e/2PACX-1vRnTs95n0C-DHcZGDos7332ndYM4_rx7ZqF_I8l6eRRoeI_uktPGq5FN-e-ByM6xA/pub?gid=1628342585&single=true&output=csv",
-  "DF": "https://docs.google.com/spreadsheets/d/e/2PACX-1vRnTs95n0C-DHcZGDos7332ndYM4_rx7ZqF_I8l6eRRoeI_uktPGq5FN-e-ByM6xA/pub?gid=583859084&single=true&output=csv",
-  "ES": "https://docs.google.com/spreadsheets/d/e/2PACX-1vRnTs95n0C-DHcZGDos7332ndYM4_rx7ZqF_I8l6eRRoeI_uktPGq5FN-e-ByM6xA/pub?gid=86931561&single=true&output=csv",
-  "GO": "https://docs.google.com/spreadsheets/d/e/2PACX-1vRnTs95n0C-DHcZGDos7332ndYM4_rx7ZqF_I8l6eRRoeI_uktPGq5FN-e-ByM6xA/pub?gid=481751009&single=true&output=csv",
-  "MA": "https://docs.google.com/spreadsheets/d/e/2PACX-1vRnTs95n0C-DHcZGDos7332ndYM4_rx7ZqF_I8l6eRRoeI_uktPGq5FN-e-ByM6xA/pub?gid=1611150924&single=true&output=csv",
-  "MG": "https://docs.google.com/spreadsheets/d/e/2PACX-1vRnTs95n0C-DHcZGDos7332ndYM4_rx7ZqF_I8l6eRRoeI_uktPGq5FN-e-ByM6xA/pub?gid=671670202&single=true&output=csv",
-  "MS": "https://docs.google.com/spreadsheets/d/e/2PACX-1vRnTs95n0C-DHcZGDos7332ndYM4_rx7ZqF_I8l6eRRoeI_uktPGq5FN-e-ByM6xA/pub?gid=1845070653&single=true&output=csv",
-  "MT": "https://docs.google.com/spreadsheets/d/e/2PACX-1vRnTs95n0C-DHcZGDos7332ndYM4_rx7ZqF_I8l6eRRoeI_uktPGq5FN-e-ByM6xA/pub?gid=777560551&single=true&output=csv",
-  "PA": "https://docs.google.com/spreadsheets/d/e/2PACX-1vRnTs95n0C-DHcZGDos7332ndYM4_rx7ZqF_I8l6eRRoeI_uktPGq5FN-e-ByM6xA/pub?gid=1379298506&single=true&output=csv",
-  "PB": "https://docs.google.com/spreadsheets/d/e/2PACX-1vRnTs95n0C-DHcZGDos7332ndYM4_rx7ZqF_I8l6eRRoeI_uktPGq5FN-e-ByM6xA/pub?gid=950212066&single=true&output=csv",
-  "PE": "https://docs.google.com/spreadsheets/d/e/2PACX-1vRnTs95n0C-DHcZGDos7332ndYM4_rx7ZqF_I8l6eRRoeI_uktPGq5FN-e-ByM6xA/pub?gid=1848741003&single=true&output=csv",
-  "PI": "https://docs.google.com/spreadsheets/d/e/2PACX-1vRnTs95n0C-DHcZGDos7332ndYM4_rx7ZqF_I8l6eRRoeI_uktPGq5FN-e-ByM6xA/pub?gid=260195494&single=true&output=csv",
-  "PR": "https://docs.google.com/spreadsheets/d/e/2PACX-1vRnTs95n0C-DHcZGDos7332ndYM4_rx7ZqF_I8l6eRRoeI_uktPGq5FN-e-ByM6xA/pub?gid=1944047795&single=true&output=csv",
-  "RJ": "https://docs.google.com/spreadsheets/d/e/2PACX-1vRnTs95n0C-DHcZGDos7332ndYM4_rx7ZqF_I8l6eRRoeI_uktPGq5FN-e-ByM6xA/pub?gid=408078616&single=true&output=csv",
-  "RN": "https://docs.google.com/spreadsheets/d/e/2PACX-1vRnTs95n0C-DHcZGDos7332ndYM4_rx7ZqF_I8l6eRRoeI_uktPGq5FN-e-ByM6xA/pub?gid=2061973743&single=true&output=csv",
-  "RO": "https://docs.google.com/spreadsheets/d/e/2PACX-1vRnTs95n0C-DHcZGDos7332ndYM4_rx7ZqF_I8l6eRRoeI_uktPGq5FN-e-ByM6xA/pub?gid=589419166&single=true&output=csv",
-  "RR": "https://docs.google.com/spreadsheets/d/e/2PACX-1vRnTs95n0C-DHcZGDos7332ndYM4_rx7ZqF_I8l6eRRoeI_uktPGq5FN-e-ByM6xA/pub?gid=437244425&single=true&output=csv",
-  "RS": "https://docs.google.com/spreadsheets/d/e/2PACX-1vRnTs95n0C-DHcZGDos7332ndYM4_rx7ZqF_I8l6eRRoeI_uktPGq5FN-e-ByM6xA/pub?gid=1480601952&single=true&output=csv",
-  "SC": "https://docs.google.com/spreadsheets/d/e/2PACX-1vRnTs95n0C-DHcZGDos7332ndYM4_rx7ZqF_I8l6eRRoeI_uktPGq5FN-e-ByM6xA/pub?gid=433420489&single=true&output=csv",
-  "SE": "https://docs.google.com/spreadsheets/d/e/2PACX-1vRnTs95n0C-DHcZGDos7332ndYM4_rx7ZqF_I8l6eRRoeI_uktPGq5FN-e-ByM6xA/pub?gid=1215037813&single=true&output=csv",
-  "SP": "https://docs.google.com/spreadsheets/d/e/2PACX-1vRnTs95n0C-DHcZGDos7332ndYM4_rx7ZqF_I8l6eRRoeI_uktPGq5FN-e-ByM6xA/pub?gid=618876789&single=true&output=csv",
-  "TO": "https://docs.google.com/spreadsheets/d/e/2PACX-1vRnTs95n0C-DHcZGDos7332ndYM4_rx7ZqF_I8l6eRRoeI_uktPGq5FN-e-ByM6xA/pub?gid=248095253&single=true&output=csv"
-};
 
 function mostrarAlertaCustomizado(mensagem, titulo = "Sucesso!") {
     document.getElementById("custom-alert-title").textContent = titulo;
@@ -512,13 +422,16 @@ function validarCPF(cpf) {
     return resto === parseInt(cpf.substring(10, 11));
 }
 
-document.getElementById("cpf").addEventListener("blur", function() {
-    let cpfValor = this.value.trim();
-    if (cpfValor.length > 0 && !validarCPF(cpfValor)) {
-        mostrarAlertaCustomizado("O CPF informado é inválido.", "Atenção");
-        this.focus();
-    }
-});
+const cpfEl = document.getElementById("cpf");
+if (cpfEl) {
+    cpfEl.addEventListener("blur", function() {
+        let cpfValor = this.value.trim();
+        if (cpfValor.length > 0 && !validarCPF(cpfValor)) {
+            mostrarAlertaCustomizado("O CPF informado é inválido.", "Atenção");
+            this.focus();
+        }
+    });
+}
 
 document.getElementById("nome").addEventListener("blur", function() {
     let nomeValor = this.value.trim();
@@ -620,137 +533,50 @@ document.getElementById("data_nascimento").addEventListener("blur", function() {
 
 selectUF.addEventListener("change", async function () {
     const uf = this.value;
-    if (!uf) return;
+    codigoMunicipioInput.value = "";
+
+    if (!uf) {
+        selectMunicipio.innerHTML = '<option value="">Selecione primeiro o estado</option>';
+        selectMunicipio.disabled = true;
+        return;
+    }
 
     selectMunicipio.innerHTML = '<option value="">Carregando municípios...</option>';
     selectMunicipio.disabled = true;
-    
-    const csvPromise = new Promise((resolve) => {
-        const urlEstado = CSV_POR_UF[uf];
-        if (!urlEstado) { resolve([]); return; }
-        Papa.parse(urlEstado, {
-            download: true, header: true, skipEmptyLines: true,
-            complete: (res) => resolve(res.data),
-            error: (err) => { console.error("Erro CSV:", err); resolve([]); }
-        });
-    });
 
-    const ibgePromise = fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${uf}/municipios?orderBy=nome`)
-        .then(res => res.json()).catch(() => []);
+    try {
+        const res = await fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${uf}/municipios?orderBy=nome`);
+        const municipios = await res.json();
 
-    const [dadosCsv, municipios] = await Promise.all([csvPromise, ibgePromise]);
-    EscolasMuniCSV = dadosCsv;
-
-    selectMunicipio.innerHTML = '<option value="">Selecione um município</option>';
-    if (municipios && municipios.length > 0) {
-        municipios.forEach(m => {
-            const option = document.createElement("option");
-            option.value = m.nome;
-            option.dataset.codigoIbge = m.id;
-            option.textContent = m.nome;
-            selectMunicipio.appendChild(option);
-        });
-        selectMunicipio.disabled = false;
+        selectMunicipio.innerHTML = '<option value="">Selecione um município</option>';
+        if (Array.isArray(municipios) && municipios.length > 0) {
+            municipios.forEach(m => {
+                const option = document.createElement("option");
+                option.value = m.nome;
+                option.dataset.codigoIbge = m.id;
+                option.textContent = m.nome;
+                selectMunicipio.appendChild(option);
+            });
+            selectMunicipio.disabled = false;
+        } else {
+            selectMunicipio.innerHTML = '<option value="">Nenhum município encontrado</option>';
+        }
+    } catch (err) {
+        console.error("Erro ao carregar municípios:", err);
+        selectMunicipio.innerHTML = '<option value="">Erro ao carregar municípios</option>';
     }
 });
 
 selectMunicipio.addEventListener("change", function() {
-    const perfilSelecionado = document.querySelector('input[name="tipo_cursista"]:checked')?.value;
     const optionSelecionada = selectMunicipio.options[selectMunicipio.selectedIndex];
-    const codigoIbge = optionSelecionada?.dataset?.codigoIbge || ""; 
-    
-    document.getElementById("codigo_municipio").value = codigoIbge;    
-    if (perfilSelecionado !== "Profissional da Educação") return;
-
-    selectEscola.innerHTML = '<option value="">Selecione uma escola</option>';
-    campoInep.value = "";
-    campoInep.readOnly = true;
-    
-    const codigoIbge6 = codigoIbge.substring(0, 6);
-    const municipioSelecionado = selectMunicipio.value.normalize("NFD").replace(/[\u0300-\u036f]/g,"").trim().toUpperCase();
-
-    const escolasFiltradas = EscolasMuniCSV.filter(item => {
-        const itemNormalizado = {};
-        for (let chave in item) {
-            let chaveLimpa = chave.normalize("NFD").replace(/[\u0300-\u036f]/g,"").trim().toLowerCase();
-            itemNormalizado[chaveLimpa] = item[chave];
-        }
-
-        const nomeEscola = itemNormalizado["escola_onde_atua"] || itemNormalizado["escola"] || itemNormalizado["nome_escola"] || "";
-        const municipioCSV = (itemNormalizado["municipio"] || itemNormalizado["municipio_da_escola"] || "").normalize("NFD").replace(/[\u0300-\u036f]/g,"").trim().toUpperCase();
-        const codMunCSV = String(itemNormalizado["codigo_municipio"] || itemNormalizado["cod_municipio"] || "").trim();
-        
-        return !!String(nomeEscola).trim() && ((municipioCSV === municipioSelecionado) || (codMunCSV === codigoIbge) || (codMunCSV === codigoIbge6));
-    });
-
-    if (escolasFiltradas.length === 0) {
-        selectEscola.innerHTML = '<option value="">Nenhuma escola encontrada</option>';
-        campoInep.value = "";
-        campoInep.readOnly = false;
-        return;
-    }
-
-    escolasFiltradas.forEach(item => {
-        const itemNormalizado = {};
-        for (let chave in item) {
-            let chaveLimpa = chave.normalize("NFD").replace(/[\u0300-\u036f]/g,"").trim().toLowerCase();
-            itemNormalizado[chaveLimpa] = item[chave];
-        }
-
-        const option = document.createElement("option");
-        const nomeEscola = itemNormalizado["escola_onde_atua"] || itemNormalizado["escola"] || itemNormalizado["nome_escola"] || "";
-        
-        let codigoInep = "";
-        for (let chave in itemNormalizado) {
-            if (chave.includes("inep")) { 
-                codigoInep = itemNormalizado[chave]; 
-                break; 
-            }
-        }
-        
-        option.textContent = nomeEscola;
-        option.value = nomeEscola;
-        option.dataset.inep = codigoInep ? String(codigoInep).trim() : "";
-        selectEscola.appendChild(option);
-    });
-    selectEscola.disabled = false;
+    codigoMunicipioInput.value = optionSelecionada?.dataset?.codigoIbge || "";
 });
 
-selectEscola.addEventListener("change", function() {
-    campoInep.value = this.options[this.selectedIndex].dataset.inep || "";
-    campoInep.readOnly = true;
-});
-
-function atualizarEstadoCamposEscola() {
-    const perfilSelecionado = document.querySelector('input[name="tipo_cursista"]:checked');
-    const tipo = perfilSelecionado ? perfilSelecionado.value : "";
-    
-    // Libera o estado assim que qualquer perfil for selecionado
-    selectUF.disabled = false;
-
-    if (tipo === "Profissional da Educação") {
-        selectEscola.disabled = !selectMunicipio.value;
-    } else {
-        selectEscola.innerHTML = '<option value="">Selecione primeiro o profissional da educação e o município</option>';
-        selectEscola.disabled = true;
-        campoInep.value = "";
-    }
-}
-
-// Reseta e limpa os campos de localização/escola/inep sempre que trocar o perfil do rádio
-radiosPerfil.forEach(radio => radio.addEventListener("change", function() {
-    selectUF.value = "";
+form.addEventListener("reset", function() {
+    codigoMunicipioInput.value = "";
     selectMunicipio.innerHTML = '<option value="">Selecione primeiro o estado</option>';
     selectMunicipio.disabled = true;
-    
-    selectEscola.innerHTML = '<option value="">Selecione primeiro o profissional da educação e o município</option>';
-    selectEscola.disabled = true;
-    
-    campoInep.value = "";
-    document.getElementById("codigo_municipio").value = "";
-    
-    atualizarEstadoCamposEscola();
-}));
+});
 
 form.addEventListener("submit", function(event) {
     event.preventDefault();
@@ -781,27 +607,23 @@ form.addEventListener("submit", function(event) {
     }
 
     const cpfInput = document.getElementById("cpf");
-    let cpfLimpo = cpfInput.value.replace(/\D/g, "").padStart(11, "0");
-    if (!validarCPF(cpfLimpo)) {
-        mostrarAlertaCustomizado("O CPF informado é inválido.", "Atenção");
-        cpfInput.focus();
-        return;
-    }
+    const formData = new FormData(form);
 
-    const cpfFormatado = cpfLimpo.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4");
+    if (cpfInput) {
+        let cpfLimpo = cpfInput.value.replace(/\D/g, "").padStart(11, "0");
+        if (!validarCPF(cpfLimpo)) {
+            mostrarAlertaCustomizado("O CPF informado é inválido.", "Atenção");
+            cpfInput.focus();
+            return;
+        }
+        const cpfFormatado = cpfLimpo.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4");
+        formData.set("cpf", cpfFormatado);
+    }
 
     const urlGoogleScript = "https://script.google.com/macros/s/AKfycbw1fV1LWuiY-et9A596QGbuKC4Mi-26X-GS5O-gKP-2jrnUOpZkxj9bRqKfTjVvnMbfTA/exec";
     const btnSubmit = document.querySelector(".btn-submit");
     btnSubmit.textContent = "Enviando...";
     btnSubmit.disabled = true;
-
-    const formData = new FormData(form);
-    formData.set("cpf", cpfFormatado);
-    
-    const inepValor = document.getElementById("inep").value;
-    if (inepValor) {
-        formData.set("inep", inepValor);
-    }
 
     fetch(urlGoogleScript, { 
         method: "POST", 
@@ -811,9 +633,9 @@ form.addEventListener("submit", function(event) {
     .then(() => {
         mostrarAlertaCustomizado("Nome incluído na Lista de Espera com sucesso!", "Sucesso!");
         form.reset();
-        selectUF.disabled = true;
+        codigoMunicipioInput.value = "";
+        selectMunicipio.innerHTML = '<option value="">Selecione primeiro o estado</option>';
         selectMunicipio.disabled = true;
-        selectEscola.disabled = true;
     })
     .catch(() => {
         mostrarAlertaCustomizado("Erro na conexão ao enviar os dados.", "Erro");
@@ -823,5 +645,6 @@ form.addEventListener("submit", function(event) {
         btnSubmit.disabled = false;
     });
 });
-</script></body>
+</script>
+</body>
 </html>
