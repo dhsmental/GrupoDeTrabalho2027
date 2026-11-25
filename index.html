@@ -73,6 +73,12 @@
       margin-bottom: 20px;
     }
 
+    .sub-field {
+      margin-top: 12px;
+      padding-left: 14px;
+      border-left: 3px solid #1a73e8;
+    }
+
     label {
       display: block;
       font-weight: bold;
@@ -327,7 +333,13 @@
             <option value="8">8 - Deficiência múltipla</option>
             <option value="9">9 - Não declarado</option>
             <option value="10">10 - Não possui deficiência</option>
+            <option value="11">11 - Outras</option>
           </select>
+
+          <div id="campo_deficiencia_outras" class="sub-field" style="display: none;">
+            <label for="deficiencia_outras">Especifique qual deficiência (11 - Outras): <span class="required">*</span></label>
+            <input type="text" id="deficiencia_outras" name="deficiencia_outras" placeholder="Digite aqui">
+          </div>
         </div>
 
         <div class="form-group">
@@ -409,10 +421,24 @@
     const selectUF = document.getElementById("uf");
     const selectMunicipio = document.getElementById("municipio");
     const codigoMunicipioInput = document.getElementById("codigo_municipio");
+    const selectDeficiencia = document.getElementById("deficiencia");
+    const containerDeficienciaOutras = document.getElementById("campo_deficiencia_outras");
+    const inputDeficienciaOutras = document.getElementById("deficiencia_outras");
     const form = document.getElementById("formCursistas");
 
     selectUF.disabled = false;
     selectMunicipio.disabled = true;
+
+    function alternarCampoDeficienciaOutras() {
+      const ehOutras = selectDeficiencia.value === "11";
+      containerDeficienciaOutras.style.display = ehOutras ? "block" : "none";
+      inputDeficienciaOutras.required = ehOutras;
+      if (!ehOutras) {
+        inputDeficienciaOutras.value = "";
+      }
+    }
+
+    selectDeficiencia.addEventListener("change", alternarCampoDeficienciaOutras);
 
     function mostrarAlertaCustomizado(mensagem, titulo = "Sucesso!") {
       document.getElementById("custom-alert-title").textContent = titulo;
@@ -591,6 +617,9 @@
       codigoMunicipioInput.value = "";
       selectMunicipio.innerHTML = '<option value="">Selecione primeiro o estado</option>';
       selectMunicipio.disabled = true;
+      containerDeficienciaOutras.style.display = "none";
+      inputDeficienciaOutras.required = false;
+      inputDeficienciaOutras.value = "";
     });
 
     form.addEventListener("submit", function (event) {
@@ -621,8 +650,19 @@
         return;
       }
 
+      const detalhesDeficiencia = inputDeficienciaOutras.value.trim();
+      if (selectDeficiencia.value === "11" && !detalhesDeficiencia) {
+        mostrarAlertaCustomizado("Por favor, especifique a deficiência na opção 11 - Outras.", "Atenção");
+        inputDeficienciaOutras.focus();
+        return;
+      }
+
       const cpfInput = document.getElementById("cpf");
       const formData = new FormData(form);
+
+      if (selectDeficiencia.value === "11") {
+        formData.set("deficiencia", `11 - Outras: ${detalhesDeficiencia}`);
+      }
 
       if (cpfInput) {
         const cpfLimpo = cpfInput.value.replace(/\D/g, "").padStart(11, "0");
@@ -654,6 +694,8 @@
             codigoMunicipioInput.value = "";
             selectMunicipio.innerHTML = '<option value="">Selecione primeiro o estado</option>';
             selectMunicipio.disabled = true;
+            containerDeficienciaOutras.style.display = "none";
+            inputDeficienciaOutras.required = false;
           } else {
             mostrarAlertaCustomizado(data.message || "Não foi possível concluir o cadastro.", "Atenção");
           }
