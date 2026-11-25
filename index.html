@@ -333,11 +333,11 @@
             <option value="8">8 - Deficiência múltipla</option>
             <option value="9">9 - Não declarado</option>
             <option value="10">10 - Não possui deficiência</option>
-            <option value="11">11 - Outras</option>
+            <option value="11">11 - Outra</option>
           </select>
 
           <div id="campo_deficiencia_outras" class="sub-field" style="display: none;">
-            <label for="deficiencia_outras">Especifique qual deficiência (11 - Outras): <span class="required">*</span></label>
+            <label for="deficiencia_outras">Especifique qual deficiência (11 - Outra): <span class="required">*</span></label>
             <input type="text" id="deficiencia_outras" name="deficiencia_outras" placeholder="Digite aqui">
           </div>
         </div>
@@ -430,10 +430,10 @@
     selectMunicipio.disabled = true;
 
     function alternarCampoDeficienciaOutras() {
-      const ehOutras = selectDeficiencia.value === "11";
-      containerDeficienciaOutras.style.display = ehOutras ? "block" : "none";
-      inputDeficienciaOutras.required = ehOutras;
-      if (!ehOutras) {
+      const ehOutra = selectDeficiencia.value === "11";
+      containerDeficienciaOutras.style.display = ehOutra ? "block" : "none";
+      inputDeficienciaOutras.required = ehOutra;
+      if (!ehOutra) {
         inputDeficienciaOutras.value = "";
       }
     }
@@ -652,7 +652,7 @@
 
       const detalhesDeficiencia = inputDeficienciaOutras.value.trim();
       if (selectDeficiencia.value === "11" && !detalhesDeficiencia) {
-        mostrarAlertaCustomizado("Por favor, especifique a deficiência na opção 11 - Outras.", "Atenção");
+        mostrarAlertaCustomizado("Por favor, especifique a deficiência na opção 11 - Outra.", "Atenção");
         inputDeficienciaOutras.focus();
         return;
       }
@@ -661,7 +661,7 @@
       const formData = new FormData(form);
 
       if (selectDeficiencia.value === "11") {
-        formData.set("deficiencia", `11 - Outras: ${detalhesDeficiencia}`);
+        formData.set("deficiencia", `11 - Outra: ${detalhesDeficiencia}`);
       }
 
       if (cpfInput) {
